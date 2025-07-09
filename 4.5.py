@@ -1,10 +1,3 @@
-#Bản Quyền Của NguyenDucPhat, Dec Được Bán Thì Nhớ Ghi Bản Quyền Em Ý Thức Là Do Mình Thanks!!
-# ======================================
-# TOOL BY NGUYENDUCPHAT
-# TOOL BUFF VIEW STR BẰNG PAGE PRO5
-# FB.COM/NguyenDucPhat.Copyright
-# ZALO: 0396735565
-# ======================================
 luc = "\033[1;32m"
 trang = "\033[1;37m"
 do = "\033[1;31m"

@@ -6,7 +6,12 @@ import sys
 
 # Hàm xóa màn hình console cho sạch sẽ
 def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    # Dành cho Windows
+    if os.name == 'nt':
+        _ = os.system('cls')
+    # Dành cho Mac và Linux
+    else:
+        _ = os.system('clear')
 
 # Banner của bạn đã được tích hợp
 def display_banner():
@@ -100,7 +105,7 @@ def main():
             phone_input = input("\033[1;97m[\033[1;31m❣\033[1;97m] \033[1;96mNhập SĐT cần tra (nhập 'exit' để thoát): \033[1;92m")
             
             if phone_input.lower() == 'exit':
-                print("\033[1;31mCảm ơn đã sử dụng tool của Gia Khang!\033[0m")
+                print("\n\033[1;31mCảm ơn đã sử dụng tool của Gia Khang!\033[0m")
                 break
             
             # Kiểm tra định dạng SĐT
@@ -125,10 +130,9 @@ def main():
             input("\n\033[1;97mNhấn Enter để tiếp tục tra cứu...\033[0m")
 
         except KeyboardInterrupt:
-            print("\n\033[1;31mChương trình đã bị ngắt. Tạm biệt!\033[0m")
+            print("\n\n\033[1;31mChương trình đã bị ngắt. Tạm biệt!\033[0m")
             break
 
 # Điểm bắt đầu của chương trình
 if __name__ == "__main__":
     main()
-  

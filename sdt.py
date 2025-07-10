@@ -4,6 +4,7 @@ import os
 import random
 import sys
 
+# --- HÀM CẦN THIẾT ĐỂ SỬA LỖI ---
 # Hàm xóa màn hình console cho sạch sẽ
 def clear_screen():
     # Dành cho Windows
@@ -13,6 +14,7 @@ def clear_screen():
     else:
         _ = os.system('clear')
 
+# --- CÁC THÀNH PHẦN CỦA TOOL ---
 # Banner của bạn đã được tích hợp
 def display_banner():
     banner_text = """
@@ -79,7 +81,6 @@ def generate_fake_data(phone_number):
     address = f"{random.randint(1, 1000)} {random.choice(streets)}, {random.choice(districts)}, {random.choice(cities)}"
     carrier = get_carrier(phone_number)
     
-    # Tạo chuỗi username giả từ tên
     username_part = full_name.lower().replace(" ", "")[:8]
 
     return {
@@ -95,7 +96,7 @@ def generate_fake_data(phone_number):
         "Telegram": f"@{username_part}***"
     }
 
-# Hàm chính chạy chương trình
+# --- HÀM CHÍNH CHẠY CHƯƠNG TRÌNH ---
 def main():
     while True:
         clear_screen()
@@ -108,7 +109,6 @@ def main():
                 print("\n\033[1;31mCảm ơn đã sử dụng tool của Gia Khang!\033[0m")
                 break
             
-            # Kiểm tra định dạng SĐT
             if not phone_input.isdigit() or len(phone_input) != 10 or not phone_input.startswith('0'):
                 print("\n\033[1;31m[LỖI] Số điện thoại không hợp lệ! Vui lòng nhập SĐT 10 số bắt đầu bằng 0.\033[0m")
                 time.sleep(2)
@@ -118,7 +118,6 @@ def main():
             time.sleep(1)
             loading_animation()
             
-            # Tạo và hiển thị thông tin giả
             fake_info = generate_fake_data(phone_input)
             
             print("\033[97m═════════[ \033[1;32mKẾT QUẢ TÌM THẤY\033[0m \033[97m]═════════\033[0m")
@@ -133,6 +132,6 @@ def main():
             print("\n\n\033[1;31mChương trình đã bị ngắt. Tạm biệt!\033[0m")
             break
 
-# Điểm bắt đầu của chương trình
+# --- ĐIỂM BẮT ĐẦU CHƯƠNG TRÌNH ---
 if __name__ == "__main__":
     main()
